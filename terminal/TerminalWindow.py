@@ -13,6 +13,8 @@ from terminal_lib import Window
 from terminal.AboutTerminalDialog import AboutTerminalDialog
 from terminal.PreferencesTerminalDialog import PreferencesTerminalDialog
 
+import os
+
 # See terminal_lib.Window.py for more details about how this class works
 class TerminalWindow(Window):
     __gtype_name__ = "TerminalWindow"
@@ -35,7 +37,11 @@ class TerminalWindow(Window):
         except:
             print "No hemos podido acceder a la conf de red"
         self.ui.label_net_status.set_text("Estado de la RED: %s \nDirección IP:%s"%(net_status,net_address))
+    #Señales
     def button_connect_clicked_cb(self,widget):
         print "Ha hecho click en conectar"
+        print os.system('/usr/local/bin/rdesktop')
     def button_reboot_clicked_cb(self,widget):
         print "Ha hecho click en reiniciar"
+        print os.system('/sbin/shutdown -r now')
+        
