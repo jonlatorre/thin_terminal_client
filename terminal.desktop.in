@@ -1,8 +1,0 @@
-[Desktop Entry]
-_Name=Terminal
-_Comment=Terminal application
-Categories=GNOME;Utility;
-Exec=terminal
-Icon=terminal
-Terminal=false
-Type=Application

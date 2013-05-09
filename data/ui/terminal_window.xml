@@ -1,8 +1,0 @@
-<glade-catalog name="terminal_window" domain="glade-3" 
-               depends="gtk+" version="1.0">
-  <glade-widget-classes>
-    <glade-widget-class title="Terminal Window" name="TerminalWindow" 
-                        generic-name="TerminalWindow" parent="GtkWindow"
-                        icon-name="widget-gtk-window"/>
-  </glade-widget-classes>
-</glade-catalog>
