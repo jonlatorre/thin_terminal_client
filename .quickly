@@ -1,3 +1,3 @@
-project = terminal
-version = 12.08.1
+project = thin-client-terminal
+version = 0.4.3
 template = ubuntu-application
