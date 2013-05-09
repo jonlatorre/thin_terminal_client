@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-09 16:02+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../bin/thin-client-terminal.py:143
+msgid "Show debug messages"
+msgstr ""
+
+#: ../data/ui/ThinClientTerminalWindow.ui.h:1
+msgid "Conectar"
+msgstr ""
+
+#: ../data/ui/ThinClientTerminalWindow.ui.h:2
+msgid ""
+"Red: OK\n"
+"DIrecci&#xF3;n: ----"
+msgstr ""
+
+#: ../data/ui/ThinClientTerminalWindow.ui.h:4
+msgid "Reiniciar"
+msgstr ""
+
+#: ../data/ui/ThinClientTerminalWindow.ui.h:5
+msgid "Status Area"
+msgstr ""
+
+#: ../data/ui/ThinClientTerminalWindow.ui.h:6
+#: ../thin-client-terminal.desktop.in.h:1
+msgid "Thin Client Terminal"
+msgstr ""
+
+#: ../data/ui/ThinClientTerminalWindow.ui.h:7
+msgid "_Edit"
+msgstr ""
+
+#: ../data/ui/ThinClientTerminalWindow.ui.h:8
+msgid "_File"
+msgstr ""
+
+#: ../data/ui/ThinClientTerminalWindow.ui.h:9
+msgid "_Help"
+msgstr ""
+
+#: ../data/ui/ThinClientTerminalWindow.ui.h:10
+msgid "_View"
+msgstr ""
+
+#: ../thin-client-terminal.desktop.in.h:2
+msgid "ThinClientTerminal application"
+msgstr ""

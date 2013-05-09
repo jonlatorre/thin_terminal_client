@@ -1,0 +1,8 @@
+[Desktop Entry]
+_Name=Thin Client Terminal
+_Comment=ThinClientTerminal application
+Categories=GNOME;Utility;
+Exec=thin-client-terminal
+Icon=/usr/share/thin-client-terminal/media/icon.png
+Terminal=false
+Type=Application

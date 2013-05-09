@@ -1,0 +1,155 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+### BEGIN LICENSE
+# This file is in the public domain
+### END LICENSE
+
+import sys
+import os
+import gtk
+
+import gettext
+from gettext import gettext as _
+gettext.textdomain('thin-client-terminal')
+
+# optional Launchpad integration
+# this shouldn't crash if not found as it is simply used for bug reporting
+try:
+    import LaunchpadIntegration
+    launchpad_available = True
+except:
+    launchpad_available = False
+
+# Add project root directory (enable symlink, and trunk execution).
+PROJECT_ROOT_DIRECTORY = os.path.abspath(
+    os.path.dirname(os.path.dirname(os.path.realpath(sys.argv[0]))))
+
+if (os.path.exists(os.path.join(PROJECT_ROOT_DIRECTORY, 'thin_client_terminal'))
+    and PROJECT_ROOT_DIRECTORY not in sys.path):
+    sys.path.insert(0, PROJECT_ROOT_DIRECTORY)
+    os.putenv('PYTHONPATH', PROJECT_ROOT_DIRECTORY) # for subprocesses
+
+from thin_client_terminal import (
+    AboutThinClientTerminalDialog, PreferencesThinClientTerminalDialog)
+from thin_client_terminal.helpers import get_builder
+
+
+class ThinClientTerminalWindow(gtk.Window):
+    __gtype_name__ = "ThinClientTerminalWindow"
+    
+    # To construct a new instance of this method, the following notable 
+    # methods are called in this order:
+    # __new__(cls)
+    # __init__(self)
+    # finish_initializing(self, builder)
+    # __init__(self)
+    #
+    # For this reason, it's recommended you leave __init__ empty and put
+    # your inialization code in finish_intializing
+    
+    def __new__(cls):
+        """Special static method that's automatically called by Python when 
+        constructing a new instance of this class.
+        
+        Returns a fully instantiated ThinClientTerminalWindow object.
+        """
+        builder = get_builder('ThinClientTerminalWindow')
+        new_object = builder.get_object("thin_client_terminal_window")
+        new_object.finish_initializing(builder)
+        return new_object
+
+    def finish_initializing(self, builder):
+        """Called while initializing this instance in __new__
+
+        finish_initalizing should be called after parsing the UI definition
+        and creating a ThinClientTerminalWindow object with it in order to finish
+        initializing the start of the new ThinClientTerminalWindow instance.
+        
+        Put your initilization code in here and leave __init__ undefined.
+        """
+        # Get a reference to the builder and set up the signals.
+        self.builder = builder
+        self.builder.connect_signals(self)
+
+        global launchpad_available
+        if launchpad_available:
+            # see https://wiki.ubuntu.com/UbuntuDevelopment/Internationalisation/Coding for more information
+            # about LaunchpadIntegration
+            helpmenu = self.builder.get_object('helpMenu')
+            if helpmenu:
+                LaunchpadIntegration.set_sourcepackagename('thin-client-terminal')
+                LaunchpadIntegration.add_items(helpmenu, 0, False, True)
+            else:
+                launchpad_available = False
+
+        # Uncomment the following code to read in preferences at start up.
+        #dlg = PreferencesThinClientTerminalDialog.PreferencesThinClientTerminalDialog()
+        #self.preferences = dlg.get_preferences()
+
+        # Code for other initialization actions should be added here.
+        net_status = "KO :("
+        net_address = "Desconocida"
+        try:
+            import netifaces
+            address = netifaces.ifaddresses('eth0') 
+            net_address = address[2][0]['addr']
+            net_status = "OK"
+        except:
+            print "No hemos podido acceder a la conf de red"
+        label_informacion = self.builder.get_object("label_informacion")
+        label_informacion.set_text("Estado de la RED: %s \nDirección IP:%s"%(net_status,net_address))
+
+
+    def about(self, widget, data=None):
+        """Display the about box for thin-client-terminal."""
+        about = AboutThinClientTerminalDialog.AboutThinClientTerminalDialog()
+        response = about.run()
+        about.destroy()
+
+    def preferences(self, widget, data=None):
+        """Display the preferences window for thin-client-terminal."""
+        prefs = PreferencesThinClientTerminalDialog.PreferencesThinClientTerminalDialog()
+        response = prefs.run()
+        if response == gtk.RESPONSE_OK:
+            # Make any updates based on changed preferences here.
+            pass
+        prefs.destroy()
+
+    def quit(self, widget, data=None):
+        """Signal handler for closing the ThinClientTerminalWindow."""
+        self.destroy()
+
+    def on_destroy(self, widget, data=None):
+        """Called when the ThinClientTerminalWindow is closed."""
+        # Clean up code for saving application state should be added here.
+        gtk.main_quit()
+    
+    #Mis señales
+    def on_button_reiniciar(self,widget, data=None):
+        print "Vamos a rebootar"
+        print os.system('/usr/bin/sudo /sbin/shutdown -r now')
+        
+    def on_button_conectar(self,widget, data=None):
+        print "Vamos a conectar"   
+        print os.system('/usr/local/bin/startrdesktop') 
+1
+if __name__ == "__main__":
+    # Support for command line options.
+    import logging
+    import optparse
+    parser = optparse.OptionParser(version="%prog %ver")
+    parser.add_option(
+        "-v", "--verbose", action="store_true", dest="verbose",
+        help=_("Show debug messages"))
+    (options, args) = parser.parse_args()
+
+    # Set the logging level to show debug messages.
+    if options.verbose:
+        logging.basicConfig(level=logging.DEBUG)
+        logging.debug('logging enabled')
+
+    # Run the application.
+    window = ThinClientTerminalWindow()
+    window.show()
+    #window.fullscreen()
+    gtk.main()

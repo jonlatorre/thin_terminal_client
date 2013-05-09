@@ -1,0 +1,8 @@
+<glade-catalog name="thin_client_terminal_window" domain="glade-3" 
+               depends="gtk+" version="1.0">
+  <glade-widget-classes>
+    <glade-widget-class title="Thin Client Terminal Window" name="ThinClientTerminalWindow" 
+                        generic-name="ThinClientTerminalWindow" parent="GtkWindow"
+                        icon-name="widget-gtk-window"/>
+  </glade-widget-classes>
+</glade-catalog>

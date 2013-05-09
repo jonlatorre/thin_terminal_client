@@ -1,0 +1,9 @@
+<glade-catalog name="about_thin_client_terminal_dialog" domain="glade-3" 
+               depends="gtk+" version="1.0">
+  <glade-widget-classes>
+    <glade-widget-class title="About Thin Client Terminal Dialog" name="AboutThinClientTerminalDialog" 
+                        generic-name="AboutThinClientTerminalDialog" parent="GtkAboutDialog"
+                        icon-name="widget-gtk-about-dialog"/>
+  </glade-widget-classes>
+
+</glade-catalog>
