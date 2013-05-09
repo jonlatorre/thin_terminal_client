@@ -1,4 +1,4 @@
-Source: thin_terminal_client
+Source: thin-terminal-client
 Section: python
 Priority: extra
 Build-Depends: debhelper (>= 8),
@@ -8,12 +8,13 @@ Maintainer: UNKNOWN <UNKNOWN>
 Standards-Version: 3.9.3
 X-Python-Version: >= 2.6
 
-Package: thin_terminal_client
+Package: thin-terminal-client
 Architecture: all
 Depends: ${misc:Depends},
  ${python:Depends},
  gir1.2-glib-2.0,
  gir1.2-gtk-3.0,
+ python-netifaces,
  yelp
 Description: UNKNOWN
  UNKNOWN
