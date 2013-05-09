@@ -25,4 +25,17 @@ class TerminalWindow(Window):
         self.PreferencesDialog = PreferencesTerminalDialog
 
         # Code for other initialization actions should be added here.
-
+        net_status = "KO :("
+        net_address = "Desconocida"
+        try:
+            import netifaces
+            address = netifaces.ifaddresses('eth0') 
+            net_address = address[2][0]['addr']
+            net_status = "OK"
+        except:
+            print "No hemos podido acceder a la conf de red"
+        self.ui.label_net_status.set_text("Estado de la RED: %s \nDirección IP:%s"%(net_status,net_address))
+    def button_connect_clicked_cb(self,widget):
+        print "Ha hecho click en conectar"
+    def button_reboot_clicked_cb(self,widget):
+        print "Ha hecho click en reiniciar"

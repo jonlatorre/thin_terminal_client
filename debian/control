@@ -1,4 +1,4 @@
-Source: terminal
+Source: thin_terminal_client
 Section: python
 Priority: extra
 Build-Depends: debhelper (>= 8),
@@ -8,7 +8,7 @@ Maintainer: UNKNOWN <UNKNOWN>
 Standards-Version: 3.9.3
 X-Python-Version: >= 2.6
 
-Package: terminal
+Package: thin_terminal_client
 Architecture: all
 Depends: ${misc:Depends},
  ${python:Depends},

@@ -29,6 +29,7 @@ def main():
 
     # Run the application.    
     window = TerminalWindow.TerminalWindow()
-    window.show()
     window.fullscreen()
+    window.show()
+    
     Gtk.main()
