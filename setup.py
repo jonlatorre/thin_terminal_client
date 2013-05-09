@@ -124,7 +124,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 ##################################################################################
 
 DistUtilsExtra.auto.setup(
-    name='thin-terminal-client',
+    name='terminal',
     version='0.1',
     #license='GPL-3',
     #author='Your Name',

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-09 10:33+0200\n"
+"POT-Creation-Date: 2013-05-09 12:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,17 +42,18 @@ msgid "Contents"
 msgstr ""
 
 #: ../data/ui/TerminalWindow.ui.h:7
-msgid ""
-"Your application has been created!\n"
-"\n"
-"To start changing this user interface, run 'quickly design', which will open "
-"Glade so you can edit the default windows and dialogs.\n"
-"\n"
-"To change the behavior and edit the python code, run 'quickly edit', which "
-"will bring up a text editor."
+msgid "Reiniciar"
 msgstr ""
 
-#: ../data/ui/TerminalWindow.ui.h:12
+#: ../data/ui/TerminalWindow.ui.h:8
+msgid "Estado de la RED: OK"
+msgstr ""
+
+#: ../data/ui/TerminalWindow.ui.h:9
+msgid "Connecta"
+msgstr ""
+
+#: ../data/ui/TerminalWindow.ui.h:10
 msgid "Status Area"
 msgstr ""
 
